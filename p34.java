@@ -1,47 +1,56 @@
-//armstrong number =  if the sum of the cubes of its digits equals the number itself 
-
 import java.util.Scanner;
+public class p34{
+    public static void main (String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Try to enter an armstrong number : ");
+        int number = sc.nextInt();
+        int original ;
+        int digit=0;
+        int arms =0;
+        int current_num=0;
+        int digit_1=0;
+        int arms_1=0;
+        int temp=0;
 
-public class p34 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        // --- Core Task: Check a single input number ---
-        System.out.print("Enter a 3-digit number to check: ");
-        int number = scanner.nextInt();
-        
-        if (isArmstrong(number)) {
-            System.out.println(number + " is an Armstrong number!");
-        } else {
-            System.out.println(number + " is NOT an Armstrong number.");
+
+
+
+
+        original = number;
+        while (number>0){
+            digit= number%10;
+            arms=(arms)+digit*digit*digit;
+            number=number/10;
         }
-        
-        // --- Bonus Task: Print all Armstrong numbers between 100 and 999 ---
-        System.out.println("\nArmstrong numbers between 100 and 999:");
-        for (int i = 100; i <= 999; i++) {
-            if (isArmstrong(i)) {
-                System.out.print(i + " ");
+         
+            if(arms==original){
+            
+                System.out.println("The entered number is armstrong number!! " );
+
             }
+            else {
+                System.out.println("The entered number is not armstrong number   please try again! ");
+            }
+            System.out.println("The armstrong numbers from 100 to 999 are : ");
+        for (int i=100;i<999;i++){
+            current_num=i;
+            temp=i;
+            arms_1=0;
+            while(temp>0){
+                digit_1=temp%10;
+                arms_1= (arms_1)+(digit_1*digit_1*digit_1);
+                temp=temp/10;
+
+            }
+            
+         if(arms_1==current_num){
+                    System.out.println(  arms_1);
+
+                }
+
+            
         }
-        System.out.println();
-        
-        scanner.close();
-    }
-    
-    /**
-     * Helper method to check if a number is an Armstrong number using a while loop.
-     */
-    public static boolean isArmstrong(int num) {
-        int original = num;
-        int sum = 0;
-        
-        // Extract digits and sum their cubes using a while loop
-        while (num > 0) {
-            int digit = num % 10;          // Extract the last digit
-            sum += digit * digit * digit;  // Add the cube of the digit to the sum
-            num /= 10;                     // Remove the last digit
-        }
-        
-        return sum == original;
+         
+
     }
 }
