@@ -19,7 +19,7 @@ public class p45 {
             }
         }
         System.out.println("Total number of even numbers are "+even_n);
-        System.out.println("Total number of odd numbers are"+odd_n);
+        System.out.println("Total number of odd numbers are "+odd_n);
 
        
     
